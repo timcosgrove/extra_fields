@@ -20,7 +20,7 @@ function extra_fields_field_extra_fields() {
     );
     if ($type->has_title) {
       $extra['node'][$type->type]['display']['title'] = array(
-        'label' => t('Extra field: :title', array(':title' => $type->title_label)),
+        'label' => t('Extra field: !title', array('!title' => $type->title_label)),
         'weight' => -4,
       );
     }
