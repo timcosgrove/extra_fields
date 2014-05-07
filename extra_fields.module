@@ -11,10 +11,12 @@ function extra_fields_field_extra_fields() {
         'created' => array(
           'label' => t('Post Date'),
           'weight' => -5,
+          'type' => 'hidden',
         ),
         'author' => array(
           'label' => t('Author'),
           'weight' => -3,
+          'type' => 'hidden',
         ),
       ),
     );
@@ -22,6 +24,7 @@ function extra_fields_field_extra_fields() {
       $extra['node'][$type->type]['display']['title'] = array(
         'label' => t('Extra field: !title', array('!title' => $type->title_label)),
         'weight' => -4,
+        'type' => 'hidden',
       );
     }
   }
@@ -96,18 +99,6 @@ function theme_extra_fields_author($variables) {
   $output .= $user->name;
   $output .= '</div>';
   return $output;
-}
-
-/**
- * Implements hook_entity_info_alter().
- */
-function extra_fields_entity_info_alter(&$entity_info) {
-  $entity_info['node']['view modes'] += array(
-    'subtitle_teaser' => array(
-      'label' => t('Subtitle Teaser'),
-      'custom settings' => TRUE,
-    ),
-  );
 }
 
 /* Features implementation for exporting extra fields information */
